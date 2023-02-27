@@ -7,6 +7,9 @@ import user.domain.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+/**
+ *
+ */
 public class UserDaoTest {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -39,9 +42,21 @@ public class UserDaoTest {
         System.out.println(user.getId() + " 등록 성공.");
 
         User user2 = dao.get(user.getId()); //커넥션 두 번
-        System.out.println("등록: " + user.getId() + ", 조회: " + user2.getId());
-        System.out.println(user2.getName());
-        System.out.println(user2.getPassword());
+
+        //테스트 코드 수정 전
+//        System.out.println("등록: " + user.getId() + ", 조회: " + user2.getId());
+//        System.out.println(user2.getName());
+//        System.out.println(user2.getPassword());
+
+        //테스트 코드 수정 후
+        if(!user.getName().equals(user2.getName())) {
+            System.out.println("테스트 실패! (name)");
+        } else if (!user.getPassword().equals(user2.getPassword())) {
+            System.out.println("테스트 실패! (password)");
+        } else {
+            System.out.println("조회 테스트 성공");
+        }
+
         System.out.println("======DAO 사용코드 끝=======");
 
         //Counting
