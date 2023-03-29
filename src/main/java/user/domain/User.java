@@ -18,4 +18,13 @@ public class User {
     private Level level;
     private int login; //로그인 횟수
     private int recommend; //추천수
+
+    public void upgradeLevel() {
+        Level nextLevel = this.level.nextLevel();
+        if(nextLevel == null) {
+            throw new IllegalStateException(this.level + "은 업그레이드가 불가합니다.");
+        } else {
+            this.level = nextLevel;
+        }
+    }
 }

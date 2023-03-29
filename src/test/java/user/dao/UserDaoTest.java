@@ -1,3 +1,5 @@
+package user.dao;
+
 import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -23,9 +25,6 @@ import user.domain.User;
 @SpringBootTest
 @ContextConfiguration(locations = "/applicationContext.xml")
 public class UserDaoTest {
-
-    @Autowired
-    private ApplicationContext context;
 
     @Autowired
     private UserDao dao; //픽스처. 테스트를 수행하는데 필요한 정보나 오브젝트.
