@@ -41,7 +41,7 @@ public class DaoFactory {
     @Bean //오브젝트 생성을 담당하는 IoC 용 메서드라는 표시
     public UserDao userDao() {
         //수정자 메서드 DI 방식을 통한 빈 생성.
-        UserDao userDao = new UserDao();
+        UserDaoJdbc userDao = new UserDaoJdbc();
         //userDao.setConnectionMaker(connectionMaker());
         userDao.setDataSource(dataSource());
         return userDao;
